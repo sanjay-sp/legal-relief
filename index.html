@@ -1,0 +1,186 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./public/New Project.png">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;601&display=swap" rel="stylesheet">
+    <title>Legal Relief</title>
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="./public/New Project.png" />
+        <div class="nav-elements">
+            <ul class="nav-ul">
+                <li class="nav-li"><a class="nav-a" href="#our-services">Our Services</a></li>
+                <li class="nav-li"><a class="nav-a" href="#about">About</a></li>
+            </ul>
+            <button class="contact-button"><a class="nav-a" href="#contact">Ask Lawyer</a></button>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    <a href="tel:+91-6381573365">
+        <div class="call">
+            <div>Tap to Call</div>
+            <img src="./public/call-icon.png" />
+        </div>
+    </a>
+    <section id="home">
+        <div class="logo-div">
+            <img class="home-logo" src="./public/New Project.png" />
+            <img class="logo-name " src="./public/LM.png">
+        </div>
+    </section>
+    <section id="our-services">
+        <div class="services-header">We Provide</div>
+        <div class="service-description"> Best services and work in close association with the client to
+            deliver the best possible results in just a phone call.</div>
+        <div class="service-containers">
+            <div class="container-row-1">
+                <div class="container container-1">
+                    <div class="container-top">
+                        <div class="container-number">01</div>
+                        <div class="container-head-white">Consultaion with the Advocate</div>
+                    </div>
+                    <div class="container-img">
+                    </div>
+                </div>
+                <div class="container container-2">
+                    <div class="container-top">
+                        <div class="container-number">02</div>
+                        <div class="container-head-white">Documentation for property</div>
+                    </div>
+                    <div class="container-img">
+                        <ul class="container-ul">
+                            <li class="container-li">Sale Deed</li>
+                            <li class="container-li">Leave and license</li>
+                            <li class="container-li">Power of Attorney</li>
+                            <li class="container-li">and other Documents</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-row-2">
+                <div class="container container-3">
+                    <div class="container-top">
+                        <div class="container-number">03</div>
+                        <div class="container-head-white">Consumer disputes</div>
+                    </div>
+                    <div class="container-img">
+                    </div>
+                </div>
+                <div class="container container-4">
+                    <div class="container-top">
+                        <div class="container-number">04</div>
+                        <div class="container-head-white">Counselling</div>
+                    </div>
+                    <div class="container-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="about-container">
+            <div class="about-header">About</div>
+            <div class="about-content">Legal Relief has been started to relieve the clients from their legal problems
+                and provide them legal aid in just a phone call and we try out best to solve their problems.
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-header">CONTACT</div>
+            <div class="contact-detail">
+                <div class="contact-name">GAYATRI KUMAR</div>
+                <div class="contact-desc">
+                    ADVOCATE
+                    BOMBAY HIGH COURT
+                </div>
+                <div class="contact-info">
+                    <div class="phone"><img src="./public/phone-icon.png" /><a
+                            href="tel:+91-6381573365">+91-6381573365</a></div>
+                    <div class="email"><img src="./public/email-icon.ico" /><a
+                            href="mailto:legalrelief8@gmail.com">legalrelief8@gmail.com</a></div>
+                </div>
+                <div class="contact-address">
+                    SHOP NO 14, GOODWILL AVENUE CHS, SECTOR 40 SEAWOODS WEST NEAR NEXUS GRAND CENTRAL MALL
+                    NAVI MUMBAI 400706
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelectorAll('.nav-a');
+        const navElem = document.querySelector('.nav-elements');
+        const sections = document.querySelectorAll('section');
+        const services = document.querySelector('#our-services');
+        const about = document.querySelector('#about');
+        const contact = document.querySelector('#contact');
+
+        function toggleHamburger() {
+            navElem.classList.toggle('display-nav-elem');
+            hamburger.classList.toggle('active');
+            document.body.classList.toggle('lock-screen');
+        }
+
+        hamburger.addEventListener('click', () => {
+            toggleHamburger();
+        });
+
+        nav.forEach(e => {
+            e.addEventListener('click', () => {
+                toggleHamburger();
+            })
+        })
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id == "our-services") {
+                        const header = document.querySelector('.services-header');
+                        const desc = document.querySelector('.service-description');
+                        const containers = document.querySelector('.service-containers');
+                        header.classList.add('fadeLeft');
+                        desc.classList.add('fadeLeft');
+                        containers.classList.add('fadeUp');
+                        observer.unobserve(services);
+                    } else if (entry.target.id == "about") {
+                        const header = document.querySelector('.about-header');
+                        const content = document.querySelector('.about-content');
+                        header.classList.add('fadeLeft')
+                        content.classList.add('fadeRight')
+                        observer.unobserve(about);
+                    } else if (entry.target.id == "contact") {
+                        const header = document.querySelector('.contact-header');
+                        const detail = document.querySelector('.contact-detail');
+                        header.classList.add('fadeLeft');
+                        detail.classList.add('fadeUp')
+                        observer.unobserve(contact);
+                    }
+                }
+            })
+        }, {
+            threshold: 0.5
+        });
+
+        sections.forEach(section => {
+            observer.observe(section)
+        })
+
+    </script>
+</body>
+
+</html>
